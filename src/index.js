@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Page from "./page";
-import './global.css';
+import Screens from "./screens";
+import "./global.css";
 
-ReactDOM.render(<Page />, document.getElementById("app"));
+ReactDOM.render(<Screens />, document.getElementById("app"));
 module.hot.accept();

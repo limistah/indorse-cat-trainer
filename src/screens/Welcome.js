@@ -4,9 +4,9 @@ import Typography from "@material-ui/core/Typography";
 
 export default function Welcome() {
   return (
-    <div style={{ textAlign: "center", padding: "110px 0" }}>
-      <Typography align="center" variant="h1" color="inherit">
-        Welcome
+    <div style={{ textAlign: "center", padding: "160px 0" }}>
+      <Typography align="center" variant="h2" color="inherit">
+        Indorse Cat Trainer (Evaluation)
       </Typography>
       <Typography
         align="center"
@@ -14,12 +14,13 @@ export default function Welcome() {
         variant="h6"
         color="inherit"
       >
-        We are seeking your help choose correctly image of cat from one of 20 to
-        30 images that you will be provided. Some of these images will be actual
-        cat photos and others need to be of random objects. You are to click on
-        actual cat images and then rate those images accurately if you are
-        convinced if their are cat images or not on a scale of 1-5. In the end
-        you will see the images displayed with their ratings.
+        We are seeking your assistance in training our ML dataset by choosing
+        correctly image of cat from one of 20 to 30 images that you will be
+        provided. Some of these images will be actual cat photos and others need
+        to be of random objects. You are to click on actual cat images and then
+        rate those images accurately if you are convinced if their are cat
+        images or not on a scale of 1-5. In the end you will see the images
+        displayed with their ratings.
       </Typography>
       <Button variant="contained" size="large" color="primary">
         Start Here
