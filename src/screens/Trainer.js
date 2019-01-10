@@ -18,9 +18,7 @@ const loadImagesToMemory = () => {
   // Returns object holding a url and position of file
   const modifier = (type) => (pos) => ({
     img: `assets/images/${type}-${pos + 1}.jpeg`,
-    pos: pos++,
-    rating: 0,
-    title: { author: pos, title: type }
+    rating: 0
   });
   // Create cats array
   const cats = fillArr(15, modifier("cat"));
@@ -28,7 +26,7 @@ const loadImagesToMemory = () => {
   const notCats = fillArr(11, modifier("not"));
 
   // Combine both of them and shuffle the concatenated array
-  return shuffle(cats.concat(notCats));
+  return shuffle(cats.concat(notCats)).map((val, i) => ({ ...val, pos: i }));
 };
 
 export default function Trainer() {
@@ -39,9 +37,16 @@ export default function Trainer() {
   const imagesToUse = (index) => [images[index], images[index + 1]];
   // Displays the right button based on the index of the images
   const Btn = () => {
-    const loadNextImages = () => updateLastIndex(latestIndex);
+    // Determines if both images currently on display have been rated
+    const imagesRated = imagesToUse(lastIndex).every((i) => i.rating);
+    const loadNextImages = () =>
+      imagesRated ? updateLastIndex(latestIndex) : null;
     return imageLength > latestIndex ? (
-      <Button variant="contained" onClick={loadNextImages}>
+      <Button
+        variant="contained"
+        color={imagesRated ? "secondary" : "default"}
+        onClick={loadNextImages}
+      >
         Next Images ({latestIndex} of {imageLength})
       </Button>
     ) : (
@@ -49,7 +54,8 @@ export default function Trainer() {
     );
   };
   const handleRateImage = (index, rate) => {
-    console.log({ index, rate });
+    images[index].rating = rate;
+    updateImages(images);
   };
   return (
     <Page>
