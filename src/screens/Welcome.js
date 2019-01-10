@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 export default function Welcome() {
   return (
@@ -22,9 +23,12 @@ export default function Welcome() {
         images or not on a scale of 1-5. In the end you will see the images
         displayed with their ratings.
       </Typography>
-      <Button variant="contained" size="large" color="primary">
-        Start Here
-      </Button>
+
+      <Link to="trainer" style={{ color: "#fff", textDecoration: "none" }}>
+        <Button variant="contained" size="large" color="primary">
+          Start Here
+        </Button>
+      </Link>
     </div>
   );
 }

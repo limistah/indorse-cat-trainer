@@ -1,11 +1,15 @@
 import React from "react";
 import Welcome from "./Welcome";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import NotFound from "./NotFound";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function index() {
   return (
     <Router>
-      <Route exact path="/" component={Welcome} />
+      <Switch>
+        <Route exact path="/" component={Welcome} />
+        <Route component={NotFound} />
+      </Switch>
     </Router>
   );
 }
