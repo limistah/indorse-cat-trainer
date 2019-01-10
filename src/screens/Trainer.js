@@ -21,9 +21,9 @@ const loadImagesToMemory = () => {
     rating: 0
   });
   // Create cats array
-  const cats = fillArr(15, modifier("cat"));
+  const cats = fillArr(3, modifier("cat"));
   // Creates not cat array
-  const notCats = fillArr(11, modifier("not"));
+  const notCats = fillArr(3, modifier("not"));
 
   // Combine both of them and shuffle the concatenated array
   return shuffle(cats.concat(notCats)).map((val, i) => ({ ...val, pos: i }));
@@ -63,6 +63,7 @@ export default function Trainer() {
   const handleRateImage = (index, rate) => {
     images[index].rating = rate;
     updateImages(images);
+    localStorage.setItem("images", JSON.stringify(images));
   };
   return (
     <Page>

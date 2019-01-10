@@ -12,7 +12,7 @@ function Rating({ setRating }) {
   return (
     <div style={{ textAlign: "center" }}>
       <Typography style={{ marginBottom: "20px" }}>
-        Rate the ease of identify this is image as cat or not
+        Rate the ease of identifying this is image as cat or not
       </Typography>
       {[1, 2, 3, 4, 5].map((value) => (
         <Button
