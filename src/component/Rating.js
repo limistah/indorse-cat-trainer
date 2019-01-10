@@ -16,6 +16,7 @@ function Rating({ setRating }) {
       </Typography>
       {[1, 2, 3, 4, 5].map((value) => (
         <Button
+          key={value}
           style={{ marginRight: "30px" }}
           color={rating === value ? "primary" : "default"}
           variant="contained"

@@ -39,10 +39,10 @@ export default function Trainer() {
   const latestIndex = lastIndex + 2;
   // Picks 2 images based on the passed index
   const imagesToUse = (index) => [images[index], images[index + 1]];
+  // Determines if both images currently on display have been rated
+  const imagesRated = imagesToUse(lastIndex).every((i) => i.rating);
   // Displays the right button based on the index of the images
   const Btn = () => {
-    // Determines if both images currently on display have been rated
-    const imagesRated = imagesToUse(lastIndex).every((i) => i.rating);
     // We don't want the user to leave these images unrated
     const loadNextImages = () =>
       imagesRated ? updateLastIndex(latestIndex) : null;
@@ -56,7 +56,7 @@ export default function Trainer() {
         Next Images ({latestIndex} of {imageLength})
       </Button>
     ) : (
-      <Link to="result">See Result</Link>
+      imagesRated && <Link to="result">See Result</Link>
     );
   };
   // Updates the image in the state
