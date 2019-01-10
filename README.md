@@ -1,2 +1,3 @@
-# indorse-cat-trainer
-A web UI for tagging real images of cats
+# @limistah/react-location-map
+
+React component that combines Google Places Autocomplete with Google Map
