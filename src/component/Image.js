@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const styles = {
-  height: "400px",
+  height: "340px",
   width: "95%",
   marginTop: "20px",
   border: "2px solid grey",

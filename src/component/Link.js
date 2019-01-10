@@ -14,7 +14,7 @@ function LinkComp({ to, children }) {
 }
 
 LinkComp.propTypes = {
-  to: PropTypes.string.isRequired
+  to: PropTypes.any.isRequired
 };
 
 export default LinkComp;

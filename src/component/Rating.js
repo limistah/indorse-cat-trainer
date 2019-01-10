@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 
 function Rating({ setRating }) {
-  const [rating, updateRating] = useState(0);
+  const [rating, updateRating] = useState(-1);
   const pushUpRating = (rating) => {
     updateRating(rating);
     setRating(rating);
@@ -14,7 +14,7 @@ function Rating({ setRating }) {
       <Typography style={{ marginBottom: "20px" }}>
         Rate the ease of identifying this is image as cat or not
       </Typography>
-      {[1, 2, 3, 4, 5].map((value) => (
+      {[0, 1, 2, 3, 4, 5].map((value) => (
         <Button
           key={value}
           style={{ marginRight: "30px" }}

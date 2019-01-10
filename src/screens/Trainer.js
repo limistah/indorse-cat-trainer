@@ -18,12 +18,12 @@ const loadImagesToMemory = () => {
   // Returns object holding a url and position of file
   const modifier = (type) => (pos) => ({
     img: `assets/images/${type}-${pos + 1}.jpeg`,
-    rating: 0
+    rating: -1
   });
   // Create cats array
-  const cats = fillArr(3, modifier("cat"));
+  const cats = fillArr(16, modifier("cat"));
   // Creates not cat array
-  const notCats = fillArr(3, modifier("not"));
+  const notCats = fillArr(12, modifier("not"));
 
   // Combine both of them and shuffle the concatenated array
   return shuffle(cats.concat(notCats)).map((val, i) => ({ ...val, pos: i }));
@@ -40,7 +40,7 @@ export default function Trainer() {
   // Picks 2 images based on the passed index
   const imagesToUse = (index) => [images[index], images[index + 1]];
   // Determines if both images currently on display have been rated
-  const imagesRated = imagesToUse(lastIndex).every((i) => i.rating);
+  const imagesRated = imagesToUse(lastIndex).every((i) => i.rating > -1);
   // Displays the right button based on the index of the images
   const Btn = () => {
     // We don't want the user to leave these images unrated
@@ -56,14 +56,13 @@ export default function Trainer() {
         Next Images ({latestIndex} of {imageLength})
       </Button>
     ) : (
-      imagesRated && <Link to="result">See Result</Link>
+      imagesRated && <Link to={{ pathname: "result", images }}>See Result</Link>
     );
   };
   // Updates the image in the state
   const handleRateImage = (index, rate) => {
     images[index].rating = rate;
     updateImages(images);
-    localStorage.setItem("images", JSON.stringify(images));
   };
   return (
     <Page>
