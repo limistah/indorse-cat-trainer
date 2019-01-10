@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Page from "../page";
+import ImageGrid from "./../component/ImageGrid";
 import shuffle from "shuffle-array";
 
 const loadImagesToMemory = () => {
@@ -14,9 +15,10 @@ const loadImagesToMemory = () => {
 
   // Returns object holding a url and position of file
   const modifier = (type) => (pos) => ({
-    url: `assets/images/${type}-${pos++}`,
+    img: `assets/images/${type}-${pos + 1}.jpeg`,
     pos: pos++,
-    rating: 0
+    rating: 0,
+    title: { author: pos, title: type }
   });
   // Create cats array
   const cats = fillArr(15, modifier("cat"));
@@ -29,9 +31,11 @@ const loadImagesToMemory = () => {
 
 export default function Trainer() {
   const [images, updateImages] = useState(loadImagesToMemory());
+  const [lastIndex, updateIndex] = useState(0);
+  const imagesToUse = (index) => [images[index], images[index + 1]];
   return (
     <Page>
-      <div>Trainer</div>
+      <ImageGrid images={imagesToUse(lastIndex)} />
     </Page>
   );
 }
