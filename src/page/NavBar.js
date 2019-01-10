@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 const styles = {
   root: {
@@ -30,7 +31,9 @@ function ButtonAppBar(props) {
             color="inherit"
             className={classes.grow}
           >
-            Indorse Cat Trainer Evaluation
+            <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
+              Indorse Cat Trainer Evaluation
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>

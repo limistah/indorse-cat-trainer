@@ -1,10 +1,11 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-export default function Page() {
+export default function Page({ children }) {
   return (
-    <div>
+    <React.Fragment>
       <NavBar />
-    </div>
+      {children}
+    </React.Fragment>
   );
 }
