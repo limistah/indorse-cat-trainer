@@ -30,17 +30,23 @@ const loadImagesToMemory = () => {
 };
 
 export default function Trainer() {
+  // Holds the images and update their rating
   const [images, updateImages] = useState(loadImagesToMemory());
+  // Holds last index of the viewed image and updates it
   const [lastIndex, updateLastIndex] = useState(0);
   const imageLength = images.length;
+  // Latest index is current index + 2, we are displaying 2 images
   const latestIndex = lastIndex + 2;
+  // Picks 2 images based on the passed index
   const imagesToUse = (index) => [images[index], images[index + 1]];
   // Displays the right button based on the index of the images
   const Btn = () => {
     // Determines if both images currently on display have been rated
     const imagesRated = imagesToUse(lastIndex).every((i) => i.rating);
+    // We don't want the user to leave these images unrated
     const loadNextImages = () =>
       imagesRated ? updateLastIndex(latestIndex) : null;
+    // Displays Next button or result page link based on the length of the image
     return imageLength > latestIndex ? (
       <Button
         variant="contained"
@@ -53,6 +59,7 @@ export default function Trainer() {
       <Link to="result">See Result</Link>
     );
   };
+  // Updates the image in the state
   const handleRateImage = (index, rate) => {
     images[index].rating = rate;
     updateImages(images);
