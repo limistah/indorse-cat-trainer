@@ -26,6 +26,7 @@
   "homepage": "https://github.com/limistah/indorse-cat-trainer#readme",
   "dependencies": {
     "@material-ui/core": "^3.8.3",
+    "@material-ui/icons": "^3.0.2",
     "dot-prop": "^4.2.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
@@ -47,6 +48,7 @@
     "prettier": "^1.15.3",
     "pretty-quick": "^1.8.0",
     "react-hot-loader": "^4.6.3",
+    "style-loader": "^0.23.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"

@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Page from "./page";
+import './global.css';
 
-ReactDOM.render(
-  <div>Indorse Cat Trainer</div>,
-  document.getElementById("app")
-);
+ReactDOM.render(<Page />, document.getElementById("app"));
 module.hot.accept();
